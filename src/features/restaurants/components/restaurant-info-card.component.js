@@ -18,19 +18,17 @@ import {
   Address,
 } from "./restaurant-info-card.styles";
 
-const RestaurantInfoCard = ({ restaurant = {} }) => {
+const RestaurantInfoCard = ({ restaurant }) => {
   const {
-    name = "Some name",
-    icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
-    photos = [
-      "https://res.cloudinary.com/dus5nxe5w/image/upload/c_scale,h_899,q_auto:best,w_600/v1566687456/borxvvrqe6tdocvhdb30.jpg",
-    ],
-    address = "100 some random address",
-    isOpenNow = true,
-    rating = 4,
-    isClosedTemporarily = true,
+    name,
+    icon,
+    photos,
+    address,
+    isOpenNow,
+    rating,
+    isClosedTemporarily,
     placeId,
-  } = restaurant;
+  } = restaurant.item;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
   return (
