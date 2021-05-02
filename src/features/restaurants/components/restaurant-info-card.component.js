@@ -1,15 +1,14 @@
 import React from "react";
-import { Text } from "react-native";
 import { Card } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
 
 import { Spacer } from "../../../components/spacer/spacer.component";
+import { Text } from "../../../components/typography/text.component";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
 
 import {
   RestaurantCard,
-  RestaurantCardCover,
   Info,
   Section,
   SectionEnd,
@@ -17,6 +16,7 @@ import {
   Icon,
   Address,
 } from "./restaurant-info-card.styles";
+import Favourites from "../../../components/favourites/favourites.component";
 
 const RestaurantInfoCard = ({ restaurant }) => {
   const {
@@ -28,11 +28,13 @@ const RestaurantInfoCard = ({ restaurant }) => {
     rating,
     isClosedTemporarily,
     placeId,
-  } = restaurant.item;
+  } = restaurant;
+  // console.log(restaurant);
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
   return (
     <RestaurantCard elevation={5}>
+      <Favourites restaurant={restaurant} />
       <Card.Cover source={{ uri: photos[0] }} />
       <Info>
         <Text variant="label">{name}</Text>
