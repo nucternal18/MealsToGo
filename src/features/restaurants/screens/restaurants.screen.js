@@ -13,6 +13,7 @@ import styled from "styled-components/native";
 import RestaurantInfoCard from "../components/restaurant-info-card.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import FavouritesBar from "../../../components/favourites/favourites-bar.component";
+import { FadeInView } from "../../../components/animations/fade.animation";
 import { Search } from "../components/search.component";
 
 // context
@@ -68,7 +69,9 @@ const RestaurantsScreen = ({ navigation }) => {
                 }
               >
                 <Spacer position="bottom" size="large">
-                  <RestaurantInfoCard restaurant={item.item} />
+                  <FadeInView>
+                    <RestaurantInfoCard restaurant={item.item} />
+                  </FadeInView>
                 </Spacer>
               </TouchableOpacity>
             );
